@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/http;//tobyrushton.github.io/searching-visualiser/static/css/main.e557d4ab.chunk.css",
+    "main.js": "/http;//tobyrushton.github.io/searching-visualiser/static/js/main.b519f7d0.chunk.js",
+    "main.js.map": "/http;//tobyrushton.github.io/searching-visualiser/static/js/main.b519f7d0.chunk.js.map",
+    "runtime-main.js": "/http;//tobyrushton.github.io/searching-visualiser/static/js/runtime-main.a05b2087.js",
+    "runtime-main.js.map": "/http;//tobyrushton.github.io/searching-visualiser/static/js/runtime-main.a05b2087.js.map",
+    "static/js/2.109b094c.chunk.js": "/http;//tobyrushton.github.io/searching-visualiser/static/js/2.109b094c.chunk.js",
+    "static/js/2.109b094c.chunk.js.map": "/http;//tobyrushton.github.io/searching-visualiser/static/js/2.109b094c.chunk.js.map",
+    "static/js/3.7d9e6ab6.chunk.js": "/http;//tobyrushton.github.io/searching-visualiser/static/js/3.7d9e6ab6.chunk.js",
+    "static/js/3.7d9e6ab6.chunk.js.map": "/http;//tobyrushton.github.io/searching-visualiser/static/js/3.7d9e6ab6.chunk.js.map",
+    "index.html": "/http;//tobyrushton.github.io/searching-visualiser/index.html",
+    "static/css/main.e557d4ab.chunk.css.map": "/http;//tobyrushton.github.io/searching-visualiser/static/css/main.e557d4ab.chunk.css.map",
+    "static/js/2.109b094c.chunk.js.LICENSE.txt": "/http;//tobyrushton.github.io/searching-visualiser/static/js/2.109b094c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a05b2087.js",
+    "static/js/2.109b094c.chunk.js",
+    "static/css/main.e557d4ab.chunk.css",
+    "static/js/main.b519f7d0.chunk.js"
+  ]
+}
