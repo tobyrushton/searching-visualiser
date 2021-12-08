@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/searching-visualiser/static/css/main.e557d4ab.chunk.css",
-    "main.js": "/searching-visualiser/static/js/main.b519f7d0.chunk.js",
-    "main.js.map": "/searching-visualiser/static/js/main.b519f7d0.chunk.js.map",
-    "runtime-main.js": "/searching-visualiser/static/js/runtime-main.c4b6e9f4.js",
-    "runtime-main.js.map": "/searching-visualiser/static/js/runtime-main.c4b6e9f4.js.map",
-    "static/js/2.109b094c.chunk.js": "/searching-visualiser/static/js/2.109b094c.chunk.js",
-    "static/js/2.109b094c.chunk.js.map": "/searching-visualiser/static/js/2.109b094c.chunk.js.map",
-    "static/js/3.7d9e6ab6.chunk.js": "/searching-visualiser/static/js/3.7d9e6ab6.chunk.js",
-    "static/js/3.7d9e6ab6.chunk.js.map": "/searching-visualiser/static/js/3.7d9e6ab6.chunk.js.map",
-    "index.html": "/searching-visualiser/index.html",
-    "static/css/main.e557d4ab.chunk.css.map": "/searching-visualiser/static/css/main.e557d4ab.chunk.css.map",
-    "static/js/2.109b094c.chunk.js.LICENSE.txt": "/searching-visualiser/static/js/2.109b094c.chunk.js.LICENSE.txt"
+    "main.css": "/tobyrushton/searching-visualiser.git/static/css/main.e557d4ab.chunk.css",
+    "main.js": "/tobyrushton/searching-visualiser.git/static/js/main.b519f7d0.chunk.js",
+    "main.js.map": "/tobyrushton/searching-visualiser.git/static/js/main.b519f7d0.chunk.js.map",
+    "runtime-main.js": "/tobyrushton/searching-visualiser.git/static/js/runtime-main.6dbff28f.js",
+    "runtime-main.js.map": "/tobyrushton/searching-visualiser.git/static/js/runtime-main.6dbff28f.js.map",
+    "static/js/2.109b094c.chunk.js": "/tobyrushton/searching-visualiser.git/static/js/2.109b094c.chunk.js",
+    "static/js/2.109b094c.chunk.js.map": "/tobyrushton/searching-visualiser.git/static/js/2.109b094c.chunk.js.map",
+    "static/js/3.7d9e6ab6.chunk.js": "/tobyrushton/searching-visualiser.git/static/js/3.7d9e6ab6.chunk.js",
+    "static/js/3.7d9e6ab6.chunk.js.map": "/tobyrushton/searching-visualiser.git/static/js/3.7d9e6ab6.chunk.js.map",
+    "index.html": "/tobyrushton/searching-visualiser.git/index.html",
+    "static/css/main.e557d4ab.chunk.css.map": "/tobyrushton/searching-visualiser.git/static/css/main.e557d4ab.chunk.css.map",
+    "static/js/2.109b094c.chunk.js.LICENSE.txt": "/tobyrushton/searching-visualiser.git/static/js/2.109b094c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c4b6e9f4.js",
+    "static/js/runtime-main.6dbff28f.js",
     "static/js/2.109b094c.chunk.js",
     "static/css/main.e557d4ab.chunk.css",
     "static/js/main.b519f7d0.chunk.js"
