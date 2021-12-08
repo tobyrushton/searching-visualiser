@@ -81,7 +81,6 @@ class Header extends Component {
     })
   }
 
-
   refreshSearch(){
     this.props.setNum(this.props.array[randomNum(0,this.props.arrayBars-1)]);
   }
