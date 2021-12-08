@@ -2,7 +2,7 @@
   "name": "toolbar-test",
   "version": "0.1.0",
   "private": true,
-  "homepage" :"http://tobyrushton.github.io/searching-visualiser",
+  "homepage" :"https://tobyrushton.github.io/searching-visualiser",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
