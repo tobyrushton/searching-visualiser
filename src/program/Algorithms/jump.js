@@ -12,7 +12,7 @@ export function getJumpSearchAnimations(array,searchNumber){
   )
   {
     let n = array.length;
-    const step = Math.round(Math.sqrt(n));
+    const step = Math.floor(Math.sqrt(n));
   
       let blockStart = 0, currentStep = step;
   
@@ -29,8 +29,8 @@ export function getJumpSearchAnimations(array,searchNumber){
   
       while (array[blockStart] < searchNumber)
       {
-      animations.push([blockStart])
           blockStart++;
+          animations.push([blockStart])
   
           if (blockStart === Math.min(currentStep, n))
               return animations;
