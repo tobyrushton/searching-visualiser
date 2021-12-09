@@ -4,11 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { setArray } from '../../../redux/reducers/array';
-import { setNum } from '../../../redux/reducers/searchNum';
-import { setMax } from '../../../redux/reducers/maxValue';
-import { setBars } from '../../../redux/reducers/arrayBars';
-import { setSortedStatus } from '../../../redux/reducers/sortedStatus';
+import { setArray, setSortedStatus, setSearchNumber } from '../../../redux/reducers/arrayInfo';
 import { incrementCount, resetCount} from '../../../redux/reducers/count';
 import { getBinarySearchAnimations } from '../../Algorithms/binary.js';
 import {getLinearSearchAnimations} from '../../Algorithms/linear.js'
@@ -26,36 +22,40 @@ import { speed } from './slider/slider';
 class Header extends Component {
 
   linearSearch(){
+    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
-    colorReset(this.props.arrayBars-1);
-    const animations = getLinearSearchAnimations(this.props.array,this.props.searchNumber)
+    colorReset(this.props.arrayInfo.arrayLength-1);
+    const animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
   }
   
   fibonacciSearch(){
+    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
-    colorReset(this.props.arrayBars-1);
+    colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
-    let animations = getFibonacciSearchAnimations(arraySort(this.props.array),this.props.searchNumber)
+    let animations = getFibonacciSearchAnimations(arraySort(this.props.arrayInfo.array),this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
   }
 
   jumpSearch(){
+    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
-    colorReset(this.props.arrayBars-1);
+    colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
-    let animations = getJumpSearchAnimations(arraySort(this.props.array), this.props.searchNumber)
+    let animations = getJumpSearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
   }
 
   binarySearch(){
+    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
-    colorReset(this.props.arrayBars-1);
+    colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
-    let animations  = getBinarySearchAnimations(arraySort(this.props.array), this.props.searchNumber)
+    let animations  = getBinarySearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber)
     searchAnimation(animations, speed);
     this.displayComparisons(animations.length)
   }
@@ -73,20 +73,20 @@ class Header extends Component {
 
 
   reset(){
-    colorReset(this.props.arrayBars-1);
-    this.props.setArray(resetArray(this.props.maxValue,this.props.arrayBars));
+    colorReset(this.props.arrayInfo.arrayLength-1);
+    this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength));
     this.props.setSortedStatus(false);
     setTimeout(()=>{
-      this.props.setNum(this.props.array[randomNum(0,this.props.arrayBars-1)]);
+      this.props.setSearchNumber(this.props.arrayInfo.array[randomNum(0,this.props.arrayInfo.arrayLength-1)]);
     })
   }
 
   refreshSearch(){
-    this.props.setNum(this.props.array[randomNum(0,this.props.arrayBars-1)]);
+    this.props.setSearchNumber(this.props.arrayInfo.array[randomNum(0,this.props.arrayInfo.arrayLength-1)]);
   }
 
   sortArray(){
-    this.props.setArray(arraySort(this.props.array));
+    this.props.setArray(arraySort(this.props.arrayInfo.array));
     this.props.setSortedStatus(true);
   }
 
@@ -121,21 +121,15 @@ class Header extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    array: state.array,
-    searchNumber: state.searchNumber,
-    maxValue: state.maxValue,
-    arrayBars: state.arrayBars,
-    sortedStatus: state.sortedStatus,
     counter: state.counter,
+    arrayInfo: state.arrayInfo,
   }
 }
 
 const mapDispatchToProps = () => {
  return {
    setArray,
-   setNum,
-   setBars,
-   setMax,
+   setSearchNumber,
    setSortedStatus,
    incrementCount,
    resetCount,

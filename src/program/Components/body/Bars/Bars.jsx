@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { setBars } from "../../../../redux/reducers/arrayBars";
-import { setArray } from '../../../../redux/reducers/array'
+import { setLength, setArray } from "../../../../redux/reducers/arrayInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { randomNum } from "../../Functions/randomNum";
 import '../body.css'
@@ -56,25 +55,23 @@ function arrayResize(length,array,max,sorted,heightUpdate){
 
 function Resize(){
 
-  const realBars = useSelector((state)=>state.arrayBars);
+  const realBars = useSelector((state)=>state.arrayInfo.arrayLength);
   const dispatch = useDispatch();
   const [height,width] = useWindowSize();
   const max = maxCalc(height);
   const bars = barsCalc(width);
   var update = false;
-  const sorted = useSelector((state)=> state.sortedStatus);
+  const sorted = useSelector((state)=> state.arrayInfo.sorted);
 
-  useEffect(()=>{
-    if(realBars !== bars) dispatch(setBars(bars));
-  })
-  const array = arrayResize(bars,useSelector((state)=> state.array),max,sorted);
+  const array = arrayResize(bars,useSelector((state)=> state.arrayInfo.array),max,sorted);
 
-  if(array.length !== useSelector((state)=> state.array.length)){
+  if(array.length !== useSelector((state)=> state.arrayInfo.array.length)){
     update = true;
   }else{update = false}
 
 
   useEffect(()=>{
+    if(realBars !== bars) dispatch(setLength(bars));
     if(update === true){
       dispatch(setArray(array));
     }

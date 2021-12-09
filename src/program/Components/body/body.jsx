@@ -1,46 +1,44 @@
 import React, {Component} from 'react';
 import './body.css';
 import { connect } from 'react-redux';
-import { setArray } from '../../../redux/reducers/array';
-import { setNum } from '../../../redux/reducers/searchNum';
 import { resetArray } from '../Functions/reset';
-import { setBars } from '../../../redux/reducers/arrayBars';
-import { setMax } from '../../../redux/reducers/maxValue';
 import { randomNum } from '../Functions/randomNum';
 import { colorReset } from '../Functions/colorReset';
+import { setArray, setSearchNumber } from '../../../redux/reducers/arrayInfo';
 import Resize from './Bars/Bars';
 
 class Body extends Component {
 
   componentDidMount() {
-    this.props.setArray(resetArray(this.props.maxValue,this.props.arrayBars));
+    this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength));
     setTimeout(()=>{
       this.searchNumber();
     },100)
   } 
 
+  componentDidUpdate(){
+    this.searchNumberCheck();
+  }
+
 
 
 
   searchNumber(){
-    this.props.setNum(this.props.array[randomNum(0,this.props.arrayBars-1)]);
+    this.props.setSearchNumber(this.props.arrayInfo.array[randomNum(0,this.props.arrayInfo.arrayLength-1)]);
   }
 
   searchNumberCheck(){
-    if(this.props.array.length === 0) return;
-    if(this.props.searchNumber === 0) return;
-    if(!this.props.array.includes(this.props.searchNumber))
+    if(this.props.arrayInfo.array.length === 0) return;
+    if(this.props.arrayInfo.searchNumber === 0) return;
+    if(!this.props.arrayInfo.array.includes(this.props.arrayInfo.searchNumber))
     {
       this.searchNumber();
-      colorReset(this.props.arrayBars);
+      colorReset(this.props.arrayInfo.arrayLength);
     }
     
   }
 
   render(){
-    setTimeout(()=>{
-      this.searchNumberCheck();
-    },100)
     return      (
       <div className ="hero-body">
         <div className= "container">
@@ -54,19 +52,14 @@ class Body extends Component {
 
  const mapStateToProps = (state) => {
    return {
-     array: state.array,
-     searchNumber: state.searchNumber,
-     arrayBars: state.arrayBars,
-     maxValue: state.maxValue
+     arrayInfo: state.arrayInfo
    }
  }
 
 const mapDispatchToProps = () => {
   return {
     setArray,
-    setNum,
-    setBars,
-    setMax
+    setSearchNumber
   }
 }
 
