@@ -15,7 +15,7 @@ const theme = createTheme({
 const useStyles = makeStyles((theme) => ({
   slider:{
     padding: theme.spacing(2),
-    fontSize: 14
+    fontSize: 14,
   },
 }));
 
@@ -35,7 +35,7 @@ function ReverseSlider () {
   return (
     <div className ={classes.slider}>
     <ThemeProvider theme={theme} >
-      <Box width = {200} >
+      <Box width = {200} sx={{display: {xs: 'none', md: 'block'}}}>
         ANIMATION SPEED
         <Slider 
           defaultValue={200}
