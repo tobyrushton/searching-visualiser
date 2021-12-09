@@ -10,6 +10,7 @@ import { getBinarySearchAnimations } from '../../Algorithms/binary.js';
 import {getLinearSearchAnimations} from '../../Algorithms/linear.js'
 import {getJumpSearchAnimations} from '../../Algorithms/jump.js';
 import {getFibonacciSearchAnimations} from '../../Algorithms/fibonacci.js';
+import { getInterpolationSearchAnimations } from '../../Algorithms/interpolation';
 import {searchAnimation} from '../Functions/animations.js'
 import { colorReset } from '../Functions/colorReset';
 import { resetArray } from '../Functions/reset';
@@ -55,7 +56,15 @@ class Header extends Component {
     searchAnimation(animations, speed);
     this.displayComparisons(animations.length)
   }
-
+  
+  interpolationSearch(){
+    this.props.resetCount();
+    colorReset(this.props.arrayInfo.arrayLength-1);
+    this.sortArray();
+    let animations = getInterpolationSearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber);
+    searchAnimation(animations,speed);
+    this.displayComparisons(animations.length)
+  }
   displayComparisons(animations){
     for(let i =0;i<animations;i++){
       setTimeout(()=>{
@@ -107,6 +116,7 @@ class Header extends Component {
             <Button color="inherit" onClick = {()=> this.fibonacciSearch()}>fibonacci</Button>
             <Button color="inherit" onClick = {()=> this.binarySearch()}>binary</Button>
             <Button color="inherit" onClick = {()=> this.jumpSearch()}>jump</Button>
+            <Button color="inherit" onClick = {()=> this.interpolationSearch()}>interpolation</Button>
             </Typography>
             <ReverseSlider />
             <Typography variant ="caption" align="right">
