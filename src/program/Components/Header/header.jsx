@@ -22,7 +22,6 @@ import { speed } from './slider/slider';
 class Header extends Component {
 
   linearSearch(){
-    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
     colorReset(this.props.arrayInfo.arrayLength-1);
     const animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
@@ -31,7 +30,6 @@ class Header extends Component {
   }
   
   fibonacciSearch(){
-    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
     colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
@@ -41,7 +39,6 @@ class Header extends Component {
   }
 
   jumpSearch(){
-    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
     colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
@@ -51,7 +48,6 @@ class Header extends Component {
   }
 
   binarySearch(){
-    console.log("search number =", this.props.arrayInfo.searchNumber);
     this.props.resetCount();
     colorReset(this.props.arrayInfo.arrayLength-1);
     this.sortArray();
@@ -100,9 +96,12 @@ class Header extends Component {
             <Typography variant="body2" align="left">
             <Button color="inherit" onClick = {()=> this.reset()}>refresh array</Button>
             <Button color = "inherit" onClick = {()=> this.sortArray()}> sort array</Button>
-            COMPARISONS: {COUNT}
             </Typography>
-            <Typography />
+            <Typography>
+            <Box sx={{fontSize: 14, display: {xs: 'none', md:'block'}}}>
+            COMPARISONS: {COUNT}
+            </Box>
+            </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1}}  textAlign = "cente" align="center">
             <Button color="inherit" onClick = {()=> this.linearSearch()}>linear</Button>
             <Button color="inherit" onClick = {()=> this.fibonacciSearch()}>fibonacci</Button>
