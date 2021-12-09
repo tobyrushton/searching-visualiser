@@ -106,10 +106,8 @@ class Header extends Component {
             <Button color="inherit" onClick = {()=> this.reset()}>refresh array</Button>
             <Button color = "inherit" onClick = {()=> this.sortArray()}> sort array</Button>
             </Typography>
-            <Typography>
-            <Box sx={{fontSize: 14, display: {xs: 'none', md:'block'}}}>
+            <Typography sx={{fontSize: 14, display: {xs: 'none', md:'block'}}}>
             COMPARISONS: {COUNT}
-            </Box>
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1}}  textAlign = "cente" align="center">
             <Button color="inherit" onClick = {()=> this.linearSearch()}>linear</Button>
