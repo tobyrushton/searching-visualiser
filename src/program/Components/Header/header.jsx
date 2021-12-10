@@ -19,8 +19,17 @@ import { connect } from 'react-redux';
 import ReverseSlider from './slider/slider';
 import { speed } from './slider/slider';
 
+let buttonDisabled = false; 
+
 
 class Header extends Component {
+
+  buttonChange(length){
+    buttonDisabled = true; 
+    buttonUpdate(length).then((change)=>{
+      buttonDisabled = change;
+    })
+  }
 
   linearSearch(){
     this.props.resetCount();
@@ -28,6 +37,7 @@ class Header extends Component {
     const animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
+    this.buttonChange(animations.length);
   }
   
   fibonacciSearch(){
@@ -37,6 +47,7 @@ class Header extends Component {
     let animations = getFibonacciSearchAnimations(arraySort(this.props.arrayInfo.array),this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
+    this.buttonChange(animations.length);
   }
 
   jumpSearch(){
@@ -46,6 +57,7 @@ class Header extends Component {
     let animations = getJumpSearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber)
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
+    this.buttonChange(animations.length);
   }
 
   binarySearch(){
@@ -55,6 +67,7 @@ class Header extends Component {
     let animations  = getBinarySearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber)
     searchAnimation(animations, speed);
     this.displayComparisons(animations.length)
+    this.buttonChange(animations.length);
   }
   
   interpolationSearch(){
@@ -64,7 +77,9 @@ class Header extends Component {
     let animations = getInterpolationSearchAnimations(arraySort(this.props.arrayInfo.array), this.props.arrayInfo.searchNumber);
     searchAnimation(animations,speed);
     this.displayComparisons(animations.length)
+    this.buttonChange(animations.length);
   }
+  
   displayComparisons(animations){
     for(let i =0;i<animations;i++){
       setTimeout(()=>{
@@ -98,27 +113,28 @@ class Header extends Component {
 
   render(){
     let COUNT = this.props.counter.comparisonCount;
+
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="body2" align="left">
-            <Button color="inherit" onClick = {()=> this.reset()}>refresh array</Button>
-            <Button color = "inherit" onClick = {()=> this.sortArray()}> sort array</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.reset()}>refresh array</Button>
+            <Button color = "inherit" disabled = {buttonDisabled} onClick = {()=> this.sortArray()}> sort array</Button>
             </Typography>
             <Typography sx={{fontSize: 14, display: {xs: 'none', md:'block'}}}>
             COMPARISONS: {COUNT}
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1}}  textAlign = "cente" align="center">
-            <Button color="inherit" onClick = {()=> this.linearSearch()}>linear</Button>
-            <Button color="inherit" onClick = {()=> this.fibonacciSearch()}>fibonacci</Button>
-            <Button color="inherit" onClick = {()=> this.binarySearch()}>binary</Button>
-            <Button color="inherit" onClick = {()=> this.jumpSearch()}>jump</Button>
-            <Button color="inherit" onClick = {()=> this.interpolationSearch()}>interpolation</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.linearSearch()}>linear</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.fibonacciSearch()}>fibonacci</Button>
+            <Button color="inherit" disabled = {buttonDisabled}  onClick = {()=> this.binarySearch()}>binary</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.jumpSearch()}>jump</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.interpolationSearch()}>interpolation</Button>
             </Typography>
             <ReverseSlider />
             <Typography variant ="caption" align="right">
-            <Button color="inherit" onClick = {()=> this.refreshSearch()}>refresh search number</Button>
+            <Button color="inherit" disabled = {buttonDisabled} onClick = {()=> this.refreshSearch()}>refresh search number</Button>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -150,4 +166,19 @@ function  arraySort(array) {
   array = array.slice().sort((a, b) => a-b)
   return array;
 
+}
+
+
+
+async function buttonWait(length){
+  return new Promise((resolve,reject)=> {
+    setTimeout(function(){
+      resolve()
+    },speed*length)
+  })
+}
+
+async function buttonUpdate(length){
+  await buttonWait(length);
+  return false; 
 }
