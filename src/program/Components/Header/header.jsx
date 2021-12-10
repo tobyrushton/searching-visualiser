@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { setArray, setSortedStatus, setSearchNumber } from '../../../redux/reducers/arrayInfo';
 import { incrementCount, resetCount} from '../../../redux/reducers/count';
+import { setDisabled } from '../../../redux/reducers/headerInfo';
 import { getBinarySearchAnimations } from '../../Algorithms/binary.js';
 import {getLinearSearchAnimations} from '../../Algorithms/linear.js'
 import {getJumpSearchAnimations} from '../../Algorithms/jump.js';
@@ -16,8 +17,7 @@ import { colorReset } from '../Functions/colorReset';
 import { resetArray } from '../Functions/reset';
 import { randomNum } from '../Functions/randomNum';
 import { connect } from 'react-redux';
-import ReverseSlider from './slider/slider';
-import { speed } from './slider/slider';
+import ReverseSlider, {speed} from './slider/slider';
 
 let buttonDisabled = false; 
 
@@ -25,9 +25,11 @@ let buttonDisabled = false;
 class Header extends Component {
 
   buttonChange(length){
+    this.props.setDisabled(true)
     buttonDisabled = true; 
-    buttonUpdate(length).then((change)=>{
+    buttonUpdate(length,speed).then((change)=>{
       buttonDisabled = change;
+      this.props.setDisabled(change);
     })
   }
 
@@ -146,6 +148,7 @@ const mapStateToProps = (state) => {
   return {
     counter: state.counter,
     arrayInfo: state.arrayInfo,
+    headerInfo: state.headerInfo,
   }
 }
 
@@ -156,6 +159,7 @@ const mapDispatchToProps = () => {
    setSortedStatus,
    incrementCount,
    resetCount,
+   setDisabled,
  }
 }
 
@@ -170,15 +174,15 @@ function  arraySort(array) {
 
 
 
-async function buttonWait(length){
+async function buttonWait(interval){
   return new Promise((resolve,reject)=> {
     setTimeout(function(){
       resolve()
-    },speed*length)
+    },interval)
   })
 }
 
-async function buttonUpdate(length){
-  await buttonWait(length);
+async function buttonUpdate(length,speed){
+  await buttonWait(length*speed);
   return false; 
 }

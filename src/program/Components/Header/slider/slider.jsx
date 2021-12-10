@@ -1,5 +1,6 @@
 import React from "react";
 import { Slider,Box} from "@material-ui/core";
+import { useSelector } from "react-redux";
 import { createTheme, ThemeProvider, makeStyles} from "@material-ui/core/styles";
 
 export var speed = 200;
@@ -30,6 +31,9 @@ function handleChange(event,value){
 function ReverseSlider () {
 
 
+  const sliderDisabled = useSelector((state)=>state.headerInfo.buttonsDisabled);
+
+
   const classes = useStyles();
 
   return (
@@ -45,6 +49,7 @@ function ReverseSlider () {
           track="inverted"
           style={{color:'rgb(211,211,211)'}}
           onChange= {handleChange}
+          disabled = {sliderDisabled}
         >
         </Slider>
       </Box>
