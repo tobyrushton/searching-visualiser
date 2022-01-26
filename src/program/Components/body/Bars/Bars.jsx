@@ -7,11 +7,12 @@ import '../body.css'
 const PRIMARY_COLOR = 'black';
 
 
+
 function useWindowSize(){
-  const [size,setSize] = useState([window.innerHeight, window.innerWidth])
+  const [size,setSize] = useState(window.innerWidth)
   useEffect(() => {
     const handleResize = () => {
-      setSize([window.innerHeight, window.innerWidth])
+      setSize(window.innerWidth)
       return () => {
         window.removeEventListener('resize', handleResize);
       }
@@ -26,14 +27,17 @@ function barsCalc(width){
   return arrayLength;
 }
 
-function maxCalc(height){
-  var max = Math.floor(height/1.25);
-  if (max>730)max = 730;
-  return max;
-}
 
-function arrayResize(length,array,max,sorted,heightUpdate){
-    var auxArray = []; 
+function arrayResize(length,array,max,sorted,running){
+  if (running){
+    if(length < array.length){
+      let auxArray = [];
+      for(let i =0;i<length;i++) auxArray.push(array[i]);
+      return auxArray;
+    }
+    return array;
+  }
+    let auxArray = []; 
     const start = array.length+1; 
     if(array.length === 0)return array;
     if(length>array.length){
@@ -57,24 +61,24 @@ function Resize(){
 
   const realBars = useSelector((state)=>state.arrayInfo.arrayLength);
   const dispatch = useDispatch();
-  const [height,width] = useWindowSize();
-  const max = maxCalc(height);
+  const width = useWindowSize();
+  const max = useSelector((state)=> state.arrayInfo.height);
   const bars = barsCalc(width);
-  var update = false;
+  let update = false;
   const sorted = useSelector((state)=> state.arrayInfo.sorted);
 
-  const array = arrayResize(bars,useSelector((state)=> state.arrayInfo.array),max,sorted);
+  const running = useSelector((state)=> state.running.running);
 
-  if(array.length !== useSelector((state)=> state.arrayInfo.array.length)){
-    update = true;
-  }else{update = false}
+  const array = arrayResize(bars,useSelector((state)=> state.arrayInfo.array),max,sorted,running)
 
+
+  if(array.length !== useSelector((state)=> state.arrayInfo.array.length)) update = true;
+  else update = false
+  if(running) update = false; 
 
   useEffect(()=>{
-    if(realBars !== bars) dispatch(setLength(bars));
-    if(update === true){
-      dispatch(setArray(array));
-    }
+    if(realBars !== bars ) dispatch(setLength(bars));
+    if(update) dispatch(setArray(array))
   })
   return(
       <>
