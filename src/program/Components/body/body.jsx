@@ -17,9 +17,9 @@ class Body extends Component {
   } 
 
   componentDidUpdate(){
-    this.searchNumberCheck();
+    if(this.props.arrayInfo.searchCheck) this.searchNumberCheck();
   }
-
+  
 
 
 
@@ -40,19 +40,15 @@ class Body extends Component {
 
   render(){
     return      (
-      <div className ="hero-body">
-        <div className= "container">
           <Resize />
-      </div>
-     </div>
-
     );
   }
  }
 
  const mapStateToProps = (state) => {
    return {
-     arrayInfo: state.arrayInfo
+     arrayInfo: state.arrayInfo,
+     headerInfo: state.headerInfo,
    }
  }
 

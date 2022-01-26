@@ -1,13 +1,14 @@
 {
-  "homepage": "https://tobyrushton.github.io/searching-visualiser",
+  "homepage": "https://tobyrushton.github.io/sort-search-visualiser",
   "name": "searching-visualiser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.6.0", 
+    "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.1.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.15.0",
@@ -17,7 +18,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

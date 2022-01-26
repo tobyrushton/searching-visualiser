@@ -8,6 +8,8 @@ export const arrayInfoSlice = createSlice({
         array: [],
         searchNumber: 0,
         sorted: false,
+        lastArray: [],
+        searchCheck: false,
     },
     reducers: {
       setLength: (state, {payload}) => {
@@ -17,17 +19,21 @@ export const arrayInfoSlice = createSlice({
         state.height = payload; 
       },
       setArray: (state, {payload}) => {
-          state.array = payload;
+        state.array = payload;
       },
       setSearchNumber: (state, {payload}) => {
         state.searchNumber = payload; 
       },
       setSortedStatus: (state, {payload}) => {
-          state.sorted = payload; 
+        state.sorted = payload; 
       },
+      setSortCheck: (state,{payload}) => {
+        state.searchCheck = payload;
+      }
     },
   })
 
-export const { setLength, setHeight, setArray, setSearchNumber, setSortedStatus } = arrayInfoSlice.actions
+export const { setLength, setHeight, setArray, setSearchNumber, setSortedStatus, setSortCheck} = arrayInfoSlice.actions
+
 
 export default arrayInfoSlice.reducer

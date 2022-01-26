@@ -4,10 +4,10 @@ import Body from './program/Components/body/body';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Body />
-
+    <div className = "App">
+    <Header></Header>
+    <Body></Body>
+    
     </div>
   );
 }

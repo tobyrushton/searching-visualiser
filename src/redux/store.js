@@ -1,12 +1,12 @@
 import { configureStore} from "@reduxjs/toolkit";
 import count from "./reducers/count";
 import arrayInfo from "./reducers/arrayInfo";
-import headerInfo from "./reducers/headerInfo";
+import running from "./reducers/running";
 
 export default configureStore({
     reducer:{
         counter: count,
         arrayInfo: arrayInfo,
-        headerInfo: headerInfo
+        running: running,
     }
 });
