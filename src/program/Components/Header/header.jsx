@@ -46,7 +46,7 @@ class Header extends Component {
 
   async searchAnimation(type){
     let animations;
-    if(type >1 && type <6) await this.sortArray();
+    if(type >1 && type <6) if(!this.props.arrayInfo.sorted)await this.sortArray(); //awaits sorted array to be set so it can be passed into the searhc animations.
     switch(type){
       case 1:
         animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
