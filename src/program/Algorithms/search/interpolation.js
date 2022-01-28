@@ -1,8 +1,7 @@
 export function getInterpolationSearchAnimations(array,searchNumber){
     const animations = []; 
     if(array.length<=1) return array;
-    doInterpolation(array,animations,searchNumber)
-    return animations;
+    return doInterpolation(array,animations,searchNumber)
   }
 
 function doInterpolation(

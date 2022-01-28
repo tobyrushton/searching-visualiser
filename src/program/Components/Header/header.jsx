@@ -44,8 +44,10 @@ class Header extends Component {
     this.props.resetCount();
   }
 
-  searchAnimation(type){
+  async searchAnimation(type){
     let animations;
+    if(type >1 && type <6) this.sortArray();
+    await waitTime(200); //delay to allow the sorted array to be set so that the animations are able to take use the sorted array instead of unsorted.
     switch(type){
       case 1:
         animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
@@ -60,7 +62,9 @@ class Header extends Component {
         animations = getJumpSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber);
         break;
       case 5:
+        console.log(1)
         animations = getInterpolationSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber);
+        console.log(animations)
         break;
       default:
         break;
@@ -68,7 +72,6 @@ class Header extends Component {
     colorReset()
     this.props.resetCount();
     this.setState({buttonDisabled : true});
-    if(type >1 && type <6) this.sortArray();
     searchAnimation(animations,this.props.setRunning,this.props.incrementCount,this.returnArrayLength).then((res)=>{
       if(res) return
       this.afterAnimation();
@@ -247,4 +250,12 @@ function arraySort(array) {
   array = array.slice().sort((a, b) => a-b)
   return array;
 
+}
+
+async function waitTime(interval){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve();
+    },interval)
+  })
 }
