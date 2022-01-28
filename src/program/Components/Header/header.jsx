@@ -46,8 +46,7 @@ class Header extends Component {
 
   async searchAnimation(type){
     let animations;
-    if(type >1 && type <6) this.sortArray();
-    await waitTime(200); //delay to allow the sorted array to be set so that the animations are able to take use the sorted array instead of unsorted.
+    if(type >1 && type <6) await this.sortArray();
     switch(type){
       case 1:
         animations = getLinearSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber)
@@ -252,10 +251,3 @@ function arraySort(array) {
 
 }
 
-async function waitTime(interval){
-  return new Promise((resolve)=>{
-    setTimeout(()=>{
-      resolve();
-    },interval)
-  })
-}
