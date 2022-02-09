@@ -10,10 +10,8 @@ import Resize from './Bars/Bars';
 class Body extends Component {
 
   componentDidMount() {
-    this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength));
-    setTimeout(()=>{
-      this.searchNumber();
-    },100)
+    this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength))
+    setTimeout(this.searchNumber(),200)
   } 
 
   componentDidUpdate(){
@@ -39,9 +37,7 @@ class Body extends Component {
   }
 
   render(){
-    return      (
-          <Resize />
-    );
+    return <Resize />
   }
  }
 

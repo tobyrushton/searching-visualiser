@@ -204,8 +204,8 @@ class Header extends Component {
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.searchAnimation(5)}>interpolation</Button>
             </Typography>
             <Typography variant="h6" style={{display:initialButtons}} component="div" sx={{flexGrow:1}} textAlign = "center" align="center">
-              <Button color="inherit" onClick ={()=> this.modeChoice(1)}>Search</Button>
-              <Button color="inherit" onClick = {()=>this.modeChoice(2)}>Sort</Button>
+              <Button color="inherit" onClick ={()=> {this.modeChoice(1);this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength))}}>Search</Button>
+              <Button color="inherit" onClick = {()=>{this.modeChoice(2);this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength))}}>Sort</Button>
             </Typography>
             <Typography variant="h6" style={{display: this.state.modeSort}} component="div" sx={{ flexGrow: 1}}  textAlign = "center" align="center">
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(1) }>merge sort</Button>
