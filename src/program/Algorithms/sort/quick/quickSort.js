@@ -58,8 +58,6 @@ async function partition(array, left, right, returnArrayLength, setArray, arrayB
                 await waitTime(speed/2)
                 barOneStyle.backgroundColor = PRIMARY_COLOR
                 barTwoStyle.backgroundColor = PRIMARY_COLOR
-                barOneStyle.height = `${array[j]}px`
-                barTwoStyle.height = `${array[i]}px`
             }
             swap(array, i, j);
             setArray([...array])

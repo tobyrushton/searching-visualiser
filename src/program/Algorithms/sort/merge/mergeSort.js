@@ -42,17 +42,14 @@ async function merge(arr, l, m, r,setArray,returnArrayLength,arrayBars)
       if(l+i >= returnArrayLength() || m+j>= returnArrayLength()) break;
       let barOneStyle = arrayBars[l+i].style
       let barTwoStyle = arrayBars[m+j].style
-      let barThreeStyle = arrayBars[k].style
       barOneStyle.backgroundColor = SECONDARY_COLOR;
       barTwoStyle.backgroundColor = SECONDARY_COLOR;
         if (L[i] <= R[j]) {
             arr[k] = L[i];
-            barThreeStyle.height = `${L[i]}px`
             i++;
         }
         else {
             arr[k] = R[j];
-            barThreeStyle.height = `${R[j]}px`
             j++;
         }
         setArray([...arr]);
