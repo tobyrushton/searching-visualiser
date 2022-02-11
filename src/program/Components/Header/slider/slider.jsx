@@ -44,7 +44,7 @@ function ReverseSlider (props) {
           <Slider 
             sx={{display:sliderDisplay}}
             defaultValue={200}
-            min={20}
+            min={10}
             max={1000}
             size ="medium"
             track="inverted"
