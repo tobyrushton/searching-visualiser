@@ -22,6 +22,7 @@ import ReverseSlider from './slider/slider';
 import {completeBubbleSort } from '../../Algorithms/sort/bubble/bubbleSort.js';
 import {completeQuickSort} from '../../Algorithms/sort/quick/quickSort'
 import {completeHeapSort} from '../../Algorithms/sort/heap/heapSort'
+import {completeInsertionSort} from '../../Algorithms/sort/insertion/insertionSort'
 
 
 class Header extends Component {
@@ -144,6 +145,14 @@ class Header extends Component {
           this.afterAnimation()
         })
         break
+      case 5:
+        this.beforeAnimation();
+        completeInsertionSort([...this.props.arrayInfo.array],this.props.setRunning,this.returnArrayLength,this.props.setArray)
+        .then((res)=>{
+          if(res) return
+          this.afterAnimation();
+        })
+        break
       
       default:
         break;
@@ -212,6 +221,7 @@ class Header extends Component {
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(2) }>bubble sort</Button>
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(3) }>quick sort</Button>
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(4) }>heap sort</Button>
+            <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(5) }>insertion sort</Button>
             </Typography>
             <ReverseSlider display={sliderDisplay}/>
             <Typography variant ="caption" align="right" style={{display: this.state.modeSearch}}>
