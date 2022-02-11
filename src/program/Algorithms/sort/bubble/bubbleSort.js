@@ -35,8 +35,6 @@ async function bubbleSort(array,setArray, returnArrayLength){
             barTwoStyle.backgroundColor = SECONDARY_COLOR;
             if (array[i] >  array[i + 1]) {
                 //swap values of these arrays.
-                barOneStyle.height = `${array[i+1]}px`
-                barTwoStyle.height = `${array[i]}px`
                 let current = array[i];
                 array[i] = array[i + 1];
                 array[i + 1] = current;

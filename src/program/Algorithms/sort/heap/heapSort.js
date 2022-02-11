@@ -86,8 +86,6 @@ const buildMaxHeap = async(arr,returnArrayLength,setArray,arrayBars) => {
     barOneStyle.backgroundColor = SECONDARY_COLOR
     barTwoStyle.backgroundColor = SECONDARY_COLOR
     await waitTime(speed/2)
-    barOneStyle.height = `${arr[firstItemIndex]}px`
-    barTwoStyle.height = `${arr[lastItemIndex]}px`
     barOneStyle.backgroundColor = PRIMARY_COLOR
     barTwoStyle.backgroundColor = PRIMARY_COLOR
   
