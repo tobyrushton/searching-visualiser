@@ -180,6 +180,12 @@ class Header extends Component {
 
   returnArrayLength = () => this.props.arrayInfo.arrayLength
 
+  initialButtonPress(mode){
+    this.modeChoice(mode)
+    this.reset()
+
+  }
+
 
   render(){
     let COUNT = this.props.counter.comparisonCount;
@@ -213,8 +219,8 @@ class Header extends Component {
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.searchAnimation(5)}>interpolation</Button>
             </Typography>
             <Typography variant="h6" style={{display:initialButtons}} component="div" sx={{flexGrow:1}} textAlign = "center" align="center">
-              <Button color="inherit" onClick ={()=> {this.modeChoice(1);this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength))}}>Search</Button>
-              <Button color="inherit" onClick = {()=>{this.modeChoice(2);this.props.setArray(resetArray(this.props.arrayInfo.height,this.props.arrayInfo.arrayLength))}}>Sort</Button>
+              <Button color="inherit" onClick ={()=> {this.initialButtonPress(1)}}>Search</Button>
+              <Button color="inherit" onClick = {()=>{this.initialButtonPress(2)}}>Sort</Button>
             </Typography>
             <Typography variant="h6" style={{display: this.state.modeSort}} component="div" sx={{ flexGrow: 1}}  textAlign = "center" align="center">
             <Button color="inherit" disabled = {this.state.buttonDisabled} onClick = {()=> this.sortAnimation(1) }>merge sort</Button>
