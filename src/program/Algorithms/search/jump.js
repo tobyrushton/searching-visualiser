@@ -20,13 +20,14 @@ export function getJumpSearchAnimations(array,searchNumber){
       {
           blockStart = currentStep;
           currentStep += step;
-      animations.push([blockStart])
-  
+          animations.push([blockStart])
+
           if (blockStart >= n)
               return animations;
       }
-    animations.push([Math.min(currentStep, n) - 1])
-  
+      animations.push([Math.min(currentStep, n) - 1])
+      
+      if(array[blockStart+step-1] === searchNumber) return animations //safety return cause due to sometimes the array while loop activating despite it being redundant.
       while (array[blockStart] < searchNumber)
       {
           blockStart++;
