@@ -62,9 +62,7 @@ class Header extends Component {
         animations = getJumpSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber);
         break;
       case 5:
-        console.log(1)
         animations = getInterpolationSearchAnimations(this.props.arrayInfo.array,this.props.arrayInfo.searchNumber);
-        console.log(animations)
         break;
       default:
         break;
