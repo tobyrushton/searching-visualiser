@@ -1,8 +1,6 @@
-import '../../../Components/body/body.css';
-import {speed} from '../../../Components/Header/slider/slider'
-
-const SECONDARY_COLOR = 'red';
-const PRIMARY_COLOR = 'black'
+import '../../Components/body/body.css';
+import {speed} from '../../Components/Header/slider/slider'
+import { colours } from '../../../colourScheme'
 
 export async function completeMergeSort(array,setArray,returnArrayLength,setRunning){
     const arrayBars = document.getElementsByClassName('array-bar');
@@ -15,7 +13,7 @@ export async function completeMergeSort(array,setArray,returnArrayLength,setRunn
     }
     setRunning(false);
 
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve)=>{
         resolve();
     })
 }
@@ -42,8 +40,8 @@ async function merge(arr, l, m, r,setArray,returnArrayLength,arrayBars)
       if(l+i >= returnArrayLength() || m+j>= returnArrayLength()) break;
       let barOneStyle = arrayBars[l+i].style
       let barTwoStyle = arrayBars[m+j].style
-      barOneStyle.backgroundColor = SECONDARY_COLOR;
-      barTwoStyle.backgroundColor = SECONDARY_COLOR;
+      barOneStyle.backgroundColor = colours.secondary;
+      barTwoStyle.backgroundColor = colours.secondary;
         if (L[i] <= R[j]) {
             arr[k] = L[i];
             i++;
@@ -55,8 +53,8 @@ async function merge(arr, l, m, r,setArray,returnArrayLength,arrayBars)
         setArray([...arr]);
         k++;
         await waitTime(speed/2)
-        barOneStyle.backgroundColor = PRIMARY_COLOR
-        barTwoStyle.backgroundColor = PRIMARY_COLOR
+        barOneStyle.backgroundColor = colours.primary
+        barTwoStyle.backgroundColor = colours.primary
     }
   
     while (i < n1) {

@@ -2,11 +2,8 @@ import React, {useState, useEffect} from "react";
 import { setLength, setArray } from "../../../../redux/reducers/arrayInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { randomNum } from "../../Functions/randomNum";
+import { colours } from '../../../../colourScheme'
 import '../body.css'
-
-const PRIMARY_COLOR = 'black';
-
-
 
 function useWindowSize(){
   const [size,setSize] = useState(window.innerWidth)
@@ -87,7 +84,7 @@ function Resize(){
                 className="array-bar"
                 key={idx}
                 style={{
-                  backgroundColor: PRIMARY_COLOR,
+                  backgroundColor: colours.primary,
                   height: `${value}px`,
                 }}>&nbsp;</div>
             ))}

@@ -1,8 +1,7 @@
-import '../../../Components/body/body.css';
-import {speed} from '../../../Components/Header/slider/slider'
+import '../../Components/body/body.css';
+import {speed} from '../../Components/Header/slider/slider'
+import { colours } from '../../../colourScheme'
 
-const SECONDARY_COLOR = 'red';
-const PRIMARY_COLOR = 'black'
 
 export async function completeHeapSort(array,setRunning,returnArrayLength,setArray){
     const arrayBars = document.getElementsByClassName('array-bar')
@@ -83,11 +82,11 @@ const buildMaxHeap = async(arr,returnArrayLength,setArray,arrayBars) => {
 
     const barOneStyle = arrayBars[firstItemIndex].style
     const barTwoStyle = arrayBars[lastItemIndex].style;
-    barOneStyle.backgroundColor = SECONDARY_COLOR
-    barTwoStyle.backgroundColor = SECONDARY_COLOR
+    barOneStyle.backgroundColor = colours.secondary
+    barTwoStyle.backgroundColor = colours.secondary
     await waitTime(speed/2)
-    barOneStyle.backgroundColor = PRIMARY_COLOR
-    barTwoStyle.backgroundColor = PRIMARY_COLOR
+    barOneStyle.backgroundColor = colours.primary
+    barTwoStyle.backgroundColor = colours.primary
   
     // Swap first and last items in the array
     arr[firstItemIndex] = arr[lastItemIndex];

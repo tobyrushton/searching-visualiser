@@ -1,8 +1,6 @@
-import '../../../Components/body/body.css';
-import {speed} from '../../../Components/Header/slider/slider'
-
-const SECONDARY_COLOR = 'red';
-const PRIMARY_COLOR = 'black'
+import '../../Components/body/body.css';
+import {speed} from '../../Components/Header/slider/slider'
+import { colours } from '../../../colourScheme'
 
 export async function completeQuickSort(array,setRunning, returnArrayLength, setArray){
     const arrayBars = document.getElementsByClassName('array-bar')
@@ -35,17 +33,17 @@ async function partition(array, left, right, returnArrayLength, setArray, arrayB
         while (array[i] < pivot) {
             if(i>=returnArrayLength()) break;
             barOneStyle = arrayBars[i].style
-            barOneStyle.backgroundColor = SECONDARY_COLOR
+            barOneStyle.backgroundColor = colours.secondary
             await waitTime(speed/2)
-            barOneStyle.backgroundColor = PRIMARY_COLOR;
+            barOneStyle.backgroundColor = colours.primary;
             i++;
         }
         while (array[j] > pivot) {
             if(j>=returnArrayLength()) break
             barOneStyle = arrayBars[j].style
-            barOneStyle.backgroundColor = SECONDARY_COLOR;
+            barOneStyle.backgroundColor = colours.secondary;
             await waitTime(speed/2)
-            barOneStyle.backgroundColor = PRIMARY_COLOR;
+            barOneStyle.backgroundColor = colours.primary;
             j--;
         }
         if (i <= j) {
@@ -53,11 +51,11 @@ async function partition(array, left, right, returnArrayLength, setArray, arrayB
             {
                 barOneStyle = arrayBars[i].style
                 barTwoStyle = arrayBars[j].style
-                barOneStyle.backgroundColor = SECONDARY_COLOR
-                barTwoStyle.backgroundColor = SECONDARY_COLOR
+                barOneStyle.backgroundColor = colours.secondary
+                barTwoStyle.backgroundColor = colours.secondary
                 await waitTime(speed/2)
-                barOneStyle.backgroundColor = PRIMARY_COLOR
-                barTwoStyle.backgroundColor = PRIMARY_COLOR
+                barOneStyle.backgroundColor = colours.primary
+                barTwoStyle.backgroundColor = colours.primary
             }
             swap(array, i, j);
             setArray([...array])

@@ -18,9 +18,6 @@ class Body extends Component {
     if(this.props.arrayInfo.searchCheck) this.searchNumberCheck();
   }
   
-
-
-
   searchNumber(){
     this.props.setSearchNumber(this.props.arrayInfo.array[randomNum(0,this.props.arrayInfo.arrayLength-1)]);
   }
@@ -37,7 +34,11 @@ class Body extends Component {
   }
 
   render(){
-    return <Resize />
+    return (
+      <div className="barContainer">
+        <Resize />
+      </div>
+    )
   }
  }
 

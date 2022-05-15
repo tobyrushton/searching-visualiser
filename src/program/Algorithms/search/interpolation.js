@@ -19,7 +19,7 @@ function doInterpolation(
 
         while(!found){
             current = start + Math.floor(((length-start) /(array[length]-array[start])) * (searchNumber-array[start]));
-            animations.push([current]);
+            animations.push(current);
     
             if(searchNumber === array[current]) 
             {

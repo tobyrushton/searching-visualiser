@@ -30,7 +30,7 @@ export function getFibonacciSearchAnimations(array,searchNumber){
   {
       
       let i = Math.min(offset + fibMMm2, n-1);
-      animations.push([i]);
+      animations.push(i);
   
       if (array[i] < searchNumber)
       {
@@ -53,7 +53,7 @@ export function getFibonacciSearchAnimations(array,searchNumber){
   }
   
   if(fibMMm1 && array[n-1] === searchNumber){
-    animations.push([n-1]);
+    animations.push(n-1);
     return animations
   }
   

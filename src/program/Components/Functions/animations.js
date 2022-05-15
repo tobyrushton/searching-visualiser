@@ -1,9 +1,6 @@
 import '../body/body.css';
 import { speed } from '../Header/slider/slider';
-
-const HIGHLIGHT = 'orange'; 
-const SEARCH_COLOR = '#2AFF00';
-const SECONDARY_COLOR = 'red';
+import { colours } from '../../../colourScheme'
 
 export async function searchAnimation(animations,setRunning, incrementCount, returnArrayLength){
 
@@ -15,10 +12,10 @@ export async function searchAnimation(animations,setRunning, incrementCount, ret
       if(animations[i] < returnArrayLength()) 
       {
         const barStyle = arrayBars[barIdx].style;
-        const color = i+1 === animations.length ? SEARCH_COLOR : SECONDARY_COLOR;
+        const color = i+1 === animations.length ? colours.found : colours.secondary;
   
         await waitTime(speed/2)
-        barStyle.backgroundColor = HIGHLIGHT;
+        barStyle.backgroundColor = colours.highlight;
         incrementCount();
         await waitTime(speed/2);
         barStyle.backgroundColor = color;

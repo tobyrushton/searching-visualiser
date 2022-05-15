@@ -16,7 +16,7 @@ export function getBinarySearchAnimations(array,searchNumber){
   
     while (start <= end) {
         let middle = Math.floor((start + end) / 2);
-        animations.push([middle]);
+        animations.push(middle);
   
         if (array[middle] === searchNumber) {
            return animations;

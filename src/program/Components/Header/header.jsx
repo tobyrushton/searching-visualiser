@@ -11,7 +11,7 @@ import {getLinearSearchAnimations} from '../../Algorithms/search/linear.js'
 import {getJumpSearchAnimations} from '../../Algorithms/search/jump.js';
 import {getFibonacciSearchAnimations} from '../../Algorithms/search/fibonacci.js';
 import { getInterpolationSearchAnimations } from '../../Algorithms/search/interpolation';
-import { completeMergeSort } from '../../Algorithms/sort/merge/mergeSort';
+import { completeMergeSort } from '../../Algorithms/sort/mergeSort';
 import {searchAnimation} from '../Functions/animations.js'
 import { colorReset } from '../Functions/colorReset';
 import { resetArray } from '../Functions/reset';
@@ -19,10 +19,10 @@ import { randomNum } from '../Functions/randomNum';
 import { setRunning } from '../../../redux/reducers/running';
 import { connect } from 'react-redux';
 import ReverseSlider from './slider/slider';
-import {completeBubbleSort } from '../../Algorithms/sort/bubble/bubbleSort.js';
-import {completeQuickSort} from '../../Algorithms/sort/quick/quickSort'
-import {completeHeapSort} from '../../Algorithms/sort/heap/heapSort'
-import {completeInsertionSort} from '../../Algorithms/sort/insertion/insertionSort'
+import {completeBubbleSort } from '../../Algorithms/sort/bubbleSort'
+import {completeQuickSort} from '../../Algorithms/sort/quickSort'
+import {completeHeapSort} from '../../Algorithms/sort/heapSort'
+import {completeInsertionSort} from '../../Algorithms/sort/insertionSort'
 
 
 class Header extends Component {

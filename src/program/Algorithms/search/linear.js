@@ -13,12 +13,12 @@ export function getLinearSearchAnimations(array,searchNumber){
   {
    for(let i = 0; i < mainArray.length;i++){
      if(mainArray[i] === searchNumber){
-       animations.push([i]);
+       animations.push(i);
        return animations
      }
      else
      {
-       animations.push([i]);
+       animations.push(i);
       }
       
    }

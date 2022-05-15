@@ -1,8 +1,6 @@
-import '../../../Components/body/body.css'
-import {speed} from '../../../Components/Header/slider/slider';
-
-const SECONDARY_COLOR = 'red';
-const PRIMARY_COLOR = 'black'
+import '../../Components/body/body.css'
+import {speed} from '../../Components/Header/slider/slider';
+import { colours } from '../../../colourScheme'
 //bubble sort changed to be asynchronous due to performance issues (website freezes for a few seconds when bubble sort started)
 
 export async function completeBubbleSort(array,setArray,returnArrayLength,setRunning){
@@ -31,8 +29,8 @@ async function bubbleSort(array,setArray, returnArrayLength){
             const barOneStyle = arrayBars[barOneIdx].style
             const barTwoStyle = arrayBars[barTwoIdx].style
             //change colours of the both
-            barOneStyle.backgroundColor = SECONDARY_COLOR;
-            barTwoStyle.backgroundColor = SECONDARY_COLOR;
+            barOneStyle.backgroundColor = colours.secondary;
+            barTwoStyle.backgroundColor = colours.secondary;
             if (array[i] >  array[i + 1]) {
                 //swap values of these arrays.
                 let current = array[i];
@@ -43,8 +41,8 @@ async function bubbleSort(array,setArray, returnArrayLength){
             }
             await waitTime(speed/2) //waits for timer to continue loop.
             //revert the colours.
-            barOneStyle.backgroundColor = PRIMARY_COLOR
-            barTwoStyle.backgroundColor = PRIMARY_COLOR
+            barOneStyle.backgroundColor = colours.primary
+            barTwoStyle.backgroundColor = colours.primary
         }
     } while (swapped);
     return new Promise((resolve)=>{

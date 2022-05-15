@@ -1,8 +1,6 @@
-import '../../../Components/body/body.css';
-import {speed} from '../../../Components/Header/slider/slider'
-
-const SECONDARY_COLOR = 'red';
-const PRIMARY_COLOR = 'black'
+import '../../Components/body/body.css';
+import {speed} from '../../Components/Header/slider/slider'
+import { colours } from '../../../colourScheme'
 
 export const completeInsertionSort = async(array,setRunning,returnArrayLength,setArray) =>{
 
@@ -30,11 +28,11 @@ const insertionSort = async(arr,returnArrayLength,setArray) => {
                 const barTwoIdx = j+1
                 const barOneStyle = arrayBars[barOneIdx].style
                 const barTwoStyle = arrayBars[barTwoIdx].style
-                barOneStyle.backgroundColor = SECONDARY_COLOR
-                barTwoStyle.backgroundColor = SECONDARY_COLOR
+                barOneStyle.backgroundColor = colours.secondary
+                barTwoStyle.backgroundColor = colours.secondary
                 await wait(speed/2)
-                barOneStyle.backgroundColor = PRIMARY_COLOR
-                barTwoStyle.backgroundColor = PRIMARY_COLOR
+                barOneStyle.backgroundColor = colours.primary
+                barTwoStyle.backgroundColor = colours.primary
                 arr[j+1] = arr[j]
                 j--
                 setArray([...arr])
