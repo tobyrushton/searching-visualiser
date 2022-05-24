@@ -1,6 +1,6 @@
 {
-  "homepage": "https://tobyrushton.github.io/sort-search-visualiser",
-  "name": "searching-visualiser",
+  "homepage": "https://sort-search.tobyrushton.com/",
+  "name": "sort-search-visualiser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

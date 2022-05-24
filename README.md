@@ -3,4 +3,4 @@ It displays how different search algorithms work in an array in the forms of bar
 It shows the comparisons and steps that a sort algorithm makes my highlighting the index's and the values that are being compared to each other. 
 This allows for the efficiencies and time complexitys of different algorithms to be compared with a simple visualisation. 
 
-Can be viewed at: https://tobyrushton.github.io/sort-search-visualiser/
+Can be viewed at: https://sort-search.tobyrushton.com/
